@@ -12,7 +12,7 @@ const rateValue = document.querySelector(".rate-value");
 let voices = [];
 
 function populateVoiceList() {
-  voices = synth.getVoices().filter(v => v.lang.toLowerCase().includes('en-US'));
+  voices = synth.getVoices().filter(v => v.lang.toLowerCase().includes('en-us'));
   const selectedIndex =
     voiceSelect.selectedIndex < 0 ? 0 : voiceSelect.selectedIndex;
   voiceSelect.innerHTML = "";
