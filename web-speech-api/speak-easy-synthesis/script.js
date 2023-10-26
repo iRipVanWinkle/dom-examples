@@ -19,8 +19,8 @@ function populateVoiceList() {
 
   const defaultOption = document.createElement("option");
   defaultOption.textContent = `Default`;
-  defaultOption.setAttribute("data-lang", voices[i].lang);
-  defaultOption.setAttribute("data-name", voices[i].name);
+  defaultOption.setAttribute("data-lang", 'en-US);
+  defaultOption.setAttribute("data-name", 'Default');
   voiceSelect.appendChild(defaultOption);
   
   for (let i = 0; i < voices.length; i++) {
