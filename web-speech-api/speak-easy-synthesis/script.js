@@ -17,13 +17,15 @@ function populateVoiceList() {
     voiceSelect.selectedIndex < 0 ? 0 : voiceSelect.selectedIndex;
   voiceSelect.innerHTML = "";
 
+  const defaultOption = document.createElement("option");
+  defaultOption.textContent = `Default`;
+  defaultOption.setAttribute("data-lang", voices[i].lang);
+  defaultOption.setAttribute("data-name", voices[i].name);
+  voiceSelect.appendChild(defaultOption);
+  
   for (let i = 0; i < voices.length; i++) {
     const option = document.createElement("option");
     option.textContent = `${voices[i].name} (${voices[i].lang})`;
-
-    if (voices[i].default) {
-      option.textContent += " -- DEFAULT";
-    }
 
     option.setAttribute("data-lang", voices[i].lang);
     option.setAttribute("data-name", voices[i].name);
@@ -64,6 +66,7 @@ function speak() {
         break;
       }
     }
+    utterThis.lang = 'en-US';
     utterThis.pitch = pitch.value;
     utterThis.rate = rate.value;
     synth.speak(utterThis);
